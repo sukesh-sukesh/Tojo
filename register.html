@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tojo</title>
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        h2, h3 {
+            color: #2c3e50;
+            font-size: 25px;
+            text-align: center;
+            
+        }
+        
+        form {
+            box-sizing:500px;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            display : flex;
+            flex-direction: column;
+            gap : 20px;
+            border-radius:30px ;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+           align-items: center;
+        }
+        #name , #username, #password {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px;
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            width: 60%;
+            
+        }
+        button:hover {
+            background-color: #516b84;
+        }
+        .input-field {
+            margin-bottom: 15px;
+        }
+        
+
+        p {
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <h2>Welcome to Tojo</h2>
+    <h3>Register to your account</h3>
+    <form action="/register" method="post">
+        
+       <input type="text" id="username" name="Username" placeholder="Username" required>
+       <input type="password" id="password" name="Password" placeholder = "password" required>
+       <input type = "name" id = "name" name = "name" placeholder = "Name" required>
+    
+        <button type="submit">Register</button>
+       
+
+        <p>Already have an account? <a href="./index.html">Login here</a></p>
+    </form>
+    <footer>
+        <p>&copy; 2023 Tojo. All rights reserved.</p>  
+    </footer>
+   <script>
+  document.querySelector("form").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+   
+    localStorage.setItem("foodUser", JSON.stringify({ name, username, password }));
+
+    alert("Registered successfully, boo! Now go login 💖");
+    window.location.href = "./index.html";
+  });
+</script>
+
+
+</body>
+</html>
